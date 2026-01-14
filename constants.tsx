@@ -80,7 +80,7 @@ export const DEFAULT_CONTENT: SiteContent = {
   home: {
     heroTitle: 'A Arquitetura Oculta do seu Destino',
     heroSubtitle: 'Desvenda a alma através da precisão dos números. Onde a lógica de dados encontra a sabedoria ancestral para criar uma trajetória de prosperidade.',
-    heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&q=80&w=1920',
+    heroImage: 'https://images.unsplash.com/photo-1496347315479-3077758e774a?auto=format&fit=crop&q=80&w=1920',
     pythagorasImage: 'https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/pythagoras-digital-v2.png',
     aboutTitle: 'Quem é a Lili?',
     aboutText1: 'Sou a Eliane Serafim — e, dentro do meu universo de cura e criação, você vai me encontrar como Lili. Eu uno dois mundos que, pra mim, sempre caminharam juntos: a sensibilidade das terapias e a clareza da tecnologia.',

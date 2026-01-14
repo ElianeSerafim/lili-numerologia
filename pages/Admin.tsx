@@ -19,11 +19,12 @@ const Admin: React.FC<AdminProps> = ({ currentContent, onSave }) => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === 'portal-da-arquiteta@acesso.com.br' && password === 'Bdigital@2025') {
+    // Credenciais atualizadas: eliane@artwebcreative.com.br / Bdigital@2025
+    if (email === 'eliane@artwebcreative.com.br' && password === 'Bdigital@2025') {
       setIsLoggedIn(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      alert("Credenciais inválidas");
+      alert("Credenciais inválidas. Verifique sua chave de segurança.");
     }
   };
 
@@ -128,7 +129,7 @@ const Admin: React.FC<AdminProps> = ({ currentContent, onSave }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-6 py-4 rounded-2xl border border-gray-100 focus:ring-2 focus:ring-[#795663] outline-none transition-all bg-gray-50/50"
-                placeholder="portal-da-arquiteta@acesso.com.br"
+                placeholder="eliane@artwebcreative.com.br"
                 required
               />
             </div>

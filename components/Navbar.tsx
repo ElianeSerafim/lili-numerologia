@@ -18,19 +18,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onMenuOpen, po
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Determina se estamos em uma página que tem hero escuro (Home)
   const isDarkHeroPage = currentPage === 'home';
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-[55] transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[55] transition-all duration-700 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-xl border-b border-[#8A968815] py-4 shadow-sm' 
-          : 'bg-transparent py-6 border-b border-transparent'
+          ? 'glass-nav-scrolled py-4 shadow-xl' 
+          : 'glass-nav py-6'
       }`} 
       aria-label="Navegação Principal"
     >
@@ -53,10 +52,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onMenuOpen, po
               key={item.target}
               onClick={() => onNavigate(item.target)}
               aria-label={`Ir para ${item.name}`}
-              className={`text-[11px] uppercase tracking-[0.25em] transition-all hover:opacity-100 ${
+              className={`text-[11px] uppercase tracking-[0.25em] transition-all font-bold hover:opacity-100 ${
                 isScrolled || !isDarkHeroPage
-                  ? currentPage === item.target ? 'text-[#795663] font-bold' : 'text-[#283D3B]/70'
-                  : currentPage === item.target ? 'text-[#D9BCAF] font-bold' : 'text-white/70 hover:text-white'
+                  ? currentPage === item.target ? 'text-[#795663]' : 'text-[#283D3B]/70 hover:text-[#283D3B]'
+                  : currentPage === item.target ? 'text-[#D9BCAF]' : 'text-white/70 hover:text-white'
               }`}
             >
               {item.name}
@@ -66,26 +65,26 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onMenuOpen, po
             href={portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Acessar Portal do Cliente (abre em nova aba)"
-            className={`flex items-center gap-2 px-7 py-3 rounded-full text-[10px] uppercase tracking-[0.3em] font-bold btn-hover shadow-md hover:shadow-lg transform active:scale-95 transition-all ${
+            aria-label="Acessar Portal do Cliente"
+            className={`flex items-center gap-2 px-8 py-3 rounded-full text-[10px] uppercase tracking-[0.3em] font-black transform active:scale-95 transition-all shadow-lg ${
               isScrolled || !isDarkHeroPage
-                ? 'bg-[#283D3B] text-[#D9BCAF]'
-                : 'bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#D9BCAF] hover:text-[#283D3B]'
+                ? 'bg-[#283D3B] text-[#D9BCAF] hover:bg-[#795663] hover:text-white'
+                : 'bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white hover:text-[#283D3B]'
             }`}
           >
-            Acessar Portal <ExternalLink size={14} strokeWidth={2.5} aria-hidden="true" />
+            Acessar Portal <ExternalLink size={14} strokeWidth={3} aria-hidden="true" />
           </a>
         </div>
 
         {/* Mobile Toggle */}
         <button 
           onClick={onMenuOpen} 
-          aria-label="Abrir Menu de Navegação"
-          className={`lg:hidden p-2 rounded-full transition-colors ${
+          aria-label="Abrir Menu"
+          className={`lg:hidden p-2 rounded-xl transition-colors ${
             !isScrolled && isDarkHeroPage ? 'text-white hover:bg-white/10' : 'text-[#283D3B] hover:bg-gray-50'
           }`}
         >
-          <Menu size={28} strokeWidth={1.5} aria-hidden="true" />
+          <Menu size={28} strokeWidth={2} aria-hidden="true" />
         </button>
       </div>
     </nav>
