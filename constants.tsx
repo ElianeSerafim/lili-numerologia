@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Compass, Sparkles, Gem } from 'lucide-react';
-import { PageType, PricingItem, SiteContent } from './types';
+import { PageType, SiteContent } from './types';
 
 export const COLORS = {
   duskyRose: '#D9BCAF',
@@ -24,27 +24,63 @@ export const DEFAULT_CONTENT: SiteContent = {
       id: '1',
       title: 'A Vibração do Ano 8: Prosperidade e Justiça',
       excerpt: 'Descubra como a energia do número 8 influencia as grandes decisões financeiras e o equilíbrio de poder em 2024.',
-      content: 'O número 8 na numerologia pitagórica representa o equilíbrio entre o mundo material e o espiritual. É o número da colheita, do poder executivo e da justiça. Neste artigo, exploramos como as mulheres empreendedoras podem canalizar essa vibração para estruturar negócios sólidos e éticos. A arquitetura do destino não é linear; ela se expande em oitavas.',
+      content: 'O número 8 na numerologia pitagórica representa o equilíbrio entre o mundo material e o espiritual. É o número da colheita, do poder executivo e da justiça. \n\nNeste artigo, exploramos como as mulheres empreendedoras podem canalizar essa vibração para estruturar negócios sólidos e éticos. A arquitetura do destino não é linear; ela se expande em oitavas. \n\nQuando entendemos que o 8 é o símbolo do infinito em pé, percebemos que a riqueza flui onde há ordem e responsabilidade.',
       image: 'https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?auto=format&fit=crop&q=80&w=800',
-      date: '15 Mai 2024',
+      date: '15/05/2024',
       author: 'Lili',
-      comments: []
-    },
-    {
-      id: '2',
-      title: 'Tarot e Tomada de Decisão: O Arquétipo do Imperador',
-      excerpt: 'Como a energia da autoridade e estrutura pode ajudar você a governar sua própria trajetória profissional.',
-      content: 'Muitas vezes confundimos autoridade com autoritarismo. No Tarot Estratégico, o Imperador nos ensina sobre a fundação, o limite e a soberania. Quando uma mulher se conecta a essa energia, ela para de pedir permissão para prosperar.',
-      image: 'https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&q=80&w=800',
-      date: '10 Jun 2024',
-      author: 'Lili',
-      comments: []
+      comments: [
+        {
+          id: 'c1',
+          author: 'Mariana Silva',
+          text: 'Essa leitura me trouxe muita clareza sobre o meu momento profissional atual. Gratidão!',
+          date: '16/05/2024',
+          status: 'approved'
+        }
+      ]
     }
   ],
+  pricingPlans: [
+    {
+      title: 'Pessoal',
+      price: 'Sob Consulta',
+      features: ['Missão de Vida', 'Ciclos e Desafios', 'Vibração do Nome', 'Planejamento Anual'],
+    },
+    {
+      title: 'Empresarial',
+      price: 'Premium',
+      features: ['Análise de Marca', 'Energia dos Sócios', 'Datas para Lançamentos', 'Alinhamento Estratégico'],
+      highlight: true
+    },
+    {
+      title: 'Familiar',
+      price: 'Sob Consulta',
+      features: ['Conexão entre Membros', 'Dinâmicas de Convivência', 'Orientação Parental', 'Harmonização de Ambientes'],
+    }
+  ],
+  mapa: {
+    heroTitle: 'Mapa Numerológico Premium',
+    heroSubtitle: 'Sua vida não é um acaso, é uma arquitetura. O mapa é o seu blueprint original, revelando as engrenagens que movem seu destino.',
+    benefits: [
+      { title: "Autoconhecimento Estruturado", desc: "Entenda seus talentos naturais e como monetizá-los." },
+      { title: "Sincronia de Tempo", desc: "Saiba exatamente em qual ciclo você está e o que priorizar agora." },
+      { title: "Alinhamento de Marca", desc: "Sua vibração pessoal refletida em seu posicionamento profissional." }
+    ],
+    revealTitle: 'O que o Portal revela?',
+    revealItems: [
+      "Missão e Propósito de Alma",
+      "Desafios Kármicos e Superações",
+      "Vibração do Nome Profissional e Social",
+      "Análise de Ciclos de Realização",
+      "Seu Ano Pessoal em detalhes",
+      "Tabela de Potencialidades Mensais"
+    ],
+    pricingTitle: 'Investimento no seu Destino',
+    pricingSubtitle: 'Planos Estratégicos'
+  },
   home: {
     heroTitle: 'A Arquitetura Oculta do seu Destino',
     heroSubtitle: 'Desvenda a alma através da precisão dos números. Onde a lógica de dados encontra a sabedoria ancestral para criar uma trajetória de prosperidade.',
-    heroImage: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=1920',
+    heroImage: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&q=80&w=1920',
     pythagorasImage: 'https://raw.githubusercontent.com/stackblitz/stackblitz-images/main/pythagoras-digital-v2.png',
     aboutTitle: 'Quem é a Lili?',
     aboutText1: 'Sou a Eliane Serafim — e, dentro do meu universo de cura e criação, você vai me encontrar como Lili. Eu uno dois mundos que, pra mim, sempre caminharam juntos: a sensibilidade das terapias e a clareza da tecnologia.',
@@ -98,24 +134,5 @@ export const SERVICES = [
     description: 'Amuletos exclusivos materializados sob a frequência exata da sua vibração numérica.',
     icon: <Gem className="w-8 h-8" strokeWidth={1} />,
     target: 'joias' as PageType
-  }
-];
-
-export const MAPA_PRICING: PricingItem[] = [
-  {
-    title: 'Pessoal',
-    price: 'Sob Consulta',
-    features: ['Missão de Vida', 'Ciclos e Desafios', 'Vibração do Nome', 'Planejamento Anual'],
-  },
-  {
-    title: 'Empresarial',
-    price: 'Premium',
-    features: ['Análise de Marca', 'Energia dos Sócios', 'Datas para Lançamentos', 'Alinhamento Estratégico'],
-    highlight: true
-  },
-  {
-    title: 'Familiar',
-    price: 'Sob Consulta',
-    features: ['Conexão entre Membros', 'Dinâmicas de Convivência', 'Orientação Parental', 'Harmonização de Ambientes'],
   }
 ];

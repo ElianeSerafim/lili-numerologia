@@ -11,39 +11,43 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ onNavigate, content }) => {
   return (
-    <div className="animate-in fade-in duration-1000">
+    <div className="animate-in fade-in duration-1000 -mt-20"> {/* Offset do navbar fixo */}
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#011627]">
+        {/* Background Image - O Céu Estrelado do Atacama */}
         <div 
-          className="absolute inset-0 z-0 opacity-40 bg-cinematic scale-110 blur-[2px]" 
+          className="absolute inset-0 z-0 opacity-60 bg-cinematic scale-110" 
           style={{ backgroundImage: `url('${content.heroImage}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
           role="img"
-          aria-label="Fundo artístico de espiritualidade e números"
+          aria-label="Fundo artístico: céu estrelado do deserto do Atacama, Chile"
         ></div>
         
+        {/* Overlay para profundidade e legibilidade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#011627]/40 via-transparent to-[#011627]/80 z-10"></div>
+        
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full py-20 flex items-center min-h-screen">
-          <div className="max-w-4xl animate-in slide-in-from-left-12 duration-1000">
-            <span className="text-[#D9BCAF] text-[10px] uppercase tracking-[0.8em] font-black mb-10 block opacity-80">Arquitetura Estratégica da Alma</span>
-            <h1 className="text-6xl md:text-[9.5rem] text-white font-serif leading-[0.85] mb-12 tracking-tighter drop-shadow-[0_15px_15px_rgba(0,0,0,0.5)]">
+          <div className="max-w-4xl animate-in slide-in-from-left-12 duration-1000 pt-20">
+            <span className="text-[#D9BCAF] text-[10px] uppercase tracking-[0.8em] font-black mb-10 block opacity-90 drop-shadow-lg">Arquitetura Estratégica da Alma</span>
+            <h1 className="text-6xl md:text-[9.5rem] text-white font-serif leading-[0.85] mb-12 tracking-tighter drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
               {content.heroTitle.split(' ').map((word, i) => 
                 word.toLowerCase().includes('destino') 
                 ? <span key={i} className="texto-destaque italic pr-4">{word} </span> 
                 : <span key={i}>{word} </span>
               )}
             </h1>
-            <p className="text-[#D9BCAF] text-xl md:text-3xl font-light mb-16 leading-relaxed opacity-90 max-w-2xl border-l-[3px] border-[#D9BCAF]/40 pl-10">
+            <p className="text-white/90 text-xl md:text-3xl font-light mb-16 leading-relaxed max-w-2xl border-l-[3px] border-[#D9BCAF]/40 pl-10 drop-shadow-md">
               {content.heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-10 items-start sm:items-center">
               <button 
                 onClick={() => onNavigate('mapa')}
-                className="bg-[#283D3B] text-white px-16 py-7 rounded-full font-bold tracking-[0.3em] text-[13px] uppercase btn-hover shadow-[0_30px_60px_-15px_rgba(40,61,59,0.5)] transition-all active:scale-95"
+                className="bg-[#D9BCAF] text-[#283D3B] px-16 py-7 rounded-full font-bold tracking-[0.3em] text-[13px] uppercase btn-hover shadow-[0_30px_60px_-15px_rgba(217,188,175,0.4)] transition-all active:scale-95"
               >
                 Iniciar Projeto
               </button>
               <button 
                 onClick={() => onNavigate('sobre')}
-                className="group flex items-center gap-6 text-white text-[11px] uppercase tracking-[0.5em] font-bold hover:text-[#D9BCAF] transition-all"
+                className="group flex items-center gap-6 text-white text-[11px] uppercase tracking-[0.5em] font-bold hover:text-[#D9BCAF] transition-all drop-shadow-lg"
               >
                 A Arquiteta <div className="w-16 h-[2px] bg-white/20 group-hover:w-28 group-hover:bg-[#D9BCAF] transition-all duration-700"></div>
               </button>

@@ -57,7 +57,7 @@ const App: React.FC = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'home': return <Home onNavigate={setCurrentPage} content={content.home} />;
-      case 'mapa': return <Mapa whatsapp={content.whatsapp} />;
+      case 'mapa': return <Mapa whatsapp={content.whatsapp} content={content.mapa} pricingPlans={content.pricingPlans} />;
       case 'tarot': return <Tarot whatsapp={content.whatsapp} />;
       case 'joias': return <Joias whatsapp={content.whatsapp} />;
       case 'blog': return <Blog posts={content.blogPosts} onAddComment={handleAddComment} />;

@@ -1,34 +1,30 @@
 
 import React from 'react';
-import { MAPA_PRICING } from '../constants';
+import { PricingItem, SiteContent } from '../types';
 import { Check } from 'lucide-react';
 
 interface MapaProps {
   whatsapp: string;
+  pricingPlans: PricingItem[];
+  content: SiteContent['mapa'];
 }
 
-const Mapa: React.FC<MapaProps> = ({ whatsapp }) => {
-  const benefits = [
-    { title: "Autoconhecimento Estruturado", desc: "Entenda seus talentos naturais e como monetizá-los." },
-    { title: "Sincronia de Tempo", desc: "Saiba exatamente em qual ciclo você está e o que priorizar agora." },
-    { title: "Alinhamento de Marca", desc: "Sua vibração pessoal refletida em seu posicionamento profissional." }
-  ];
-
+const Mapa: React.FC<MapaProps> = ({ whatsapp, pricingPlans, content }) => {
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
       <section className="bg-[#8A968810] py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <span className="text-[#795663] uppercase tracking-[0.4em] text-xs font-bold mb-4 block">O Guia Supremo</span>
-          <h1 className="text-5xl md:text-6xl font-serif mb-8">Mapa Numerológico Premium</h1>
+          <h1 className="text-5xl md:text-6xl font-serif mb-8">{content.heroTitle}</h1>
           <p className="text-xl font-light leading-relaxed text-[#283D3B] opacity-80">
-            Sua vida não é um acaso, é uma arquitetura. O mapa é o seu blueprint original, revelando as engrenagens que movem seu destino.
+            {content.heroSubtitle}
           </p>
         </div>
       </section>
 
       <section className="py-16 max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12">
-          {benefits.map((b, i) => (
+          {content.benefits.map((b, i) => (
             <div key={i} className="text-center p-8 border-r border-[#8A968820] last:border-0">
               <h3 className="text-2xl font-serif mb-4 text-[#795663]">{b.title}</h3>
               <p className="font-light text-[#283D3B] leading-relaxed">{b.desc}</p>
@@ -41,16 +37,9 @@ const Mapa: React.FC<MapaProps> = ({ whatsapp }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="flex-1">
-              <h2 className="text-4xl font-serif mb-8">O que o Portal revela?</h2>
+              <h2 className="text-4xl font-serif mb-8">{content.revealTitle}</h2>
               <ul className="space-y-6">
-                {[
-                  "Missão e Propósito de Alma",
-                  "Desafios Kármicos e Superações",
-                  "Vibração do Nome Profissional e Social",
-                  "Análise de Ciclos de Realização",
-                  "Seu Ano Pessoal em detalhes",
-                  "Tabela de Potencialidades Mensais"
-                ].map((item, i) => (
+                {content.revealItems.map((item, i) => (
                   <li key={i} className="flex items-center gap-4 text-lg font-light border-b border-white/10 pb-4">
                     <span className="text-[#D9BCAF]"><Check size={20} /></span>
                     {item}
@@ -68,12 +57,12 @@ const Mapa: React.FC<MapaProps> = ({ whatsapp }) => {
 
       <section className="py-16 max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-serif mb-4">Investimento no seu Destino</h2>
-          <p className="text-[#8A9688] uppercase tracking-widest text-xs font-bold">Planos Estratégicos</p>
+          <h2 className="text-4xl font-serif mb-4">{content.pricingTitle}</h2>
+          <p className="text-[#8A9688] uppercase tracking-widest text-xs font-bold">{content.pricingSubtitle}</p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          {MAPA_PRICING.map((plan, i) => (
+          {pricingPlans.map((plan, i) => (
             <div 
               key={i} 
               className={`p-10 rounded-3xl flex flex-col ${
@@ -98,7 +87,7 @@ const Mapa: React.FC<MapaProps> = ({ whatsapp }) => {
                 rel="noopener noreferrer"
                 className={`w-full py-4 rounded-full text-xs uppercase tracking-widest font-bold transition-all text-center btn-hover ${
                 plan.highlight 
-                ? 'bg-[#283D3B] text-white' 
+                ? 'bg-[#D9BCAF] text-[#283D3B]' 
                 : 'border border-[#795663] text-[#795663] hover:text-white'
               }`}>
                 Encomendar Mapa

@@ -22,6 +22,18 @@ export interface BlogPost {
   comments?: Comment[];
 }
 
+export interface PricingItem {
+  title: string;
+  price: string;
+  features: string[];
+  highlight?: boolean;
+}
+
+export interface MapaBenefit {
+  title: string;
+  desc: string;
+}
+
 export interface SiteContent {
   whatsapp: string;
   portalUrl: string;
@@ -31,6 +43,7 @@ export interface SiteContent {
     showFeed: boolean;
   };
   blogPosts: BlogPost[];
+  pricingPlans: PricingItem[];
   home: {
     heroTitle: string;
     heroSubtitle: string;
@@ -40,6 +53,15 @@ export interface SiteContent {
     aboutText1: string;
     aboutText2: string;
     aboutImage: string;
+  };
+  mapa: {
+    heroTitle: string;
+    heroSubtitle: string;
+    benefits: MapaBenefit[];
+    revealTitle: string;
+    revealItems: string[];
+    pricingTitle: string;
+    pricingSubtitle: string;
   };
   sobre: {
     title: string;
@@ -56,11 +78,4 @@ export interface ServiceCardProps {
   icon: React.ReactNode;
   onNavigate: (page: PageType) => void;
   target: PageType;
-}
-
-export interface PricingItem {
-  title: string;
-  price: string;
-  features: string[];
-  highlight?: boolean;
 }
